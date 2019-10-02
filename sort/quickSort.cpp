@@ -1,20 +1,21 @@
 #include <iostream>
 
-using namespace::std;
+using namespace ::std;
 
-void quickSort()
+template <class T>
+void quickSort(T* sequence, int left, int right)
 {
-
+    for (int i = 0; i < right; ++i)
+    {
+        cout << sequence[i] << endl;
+    }
+    
 }
 
 int main(int argc, char const *argv[])
 {
     int num[7] = {4, 7, 1, 3, 8, 2, 11};
-    
-    for (int i = 0; i < sizeof(num) / sizeof(int); i++)
-    {
-        cout << num[i] << endl;
-    }
-    
+    quickSort(num, 0, 7);
+
     return 0;
 }
