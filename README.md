@@ -7,4 +7,4 @@
 * 选择排序
 * 冒泡排序
 * 插入排序
-* [快速排序](\sort\quickSort.cpp)
+* [快速排序](.\sort\quickSort.cpp)
