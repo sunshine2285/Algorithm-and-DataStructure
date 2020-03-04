@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void getNextArray(const string &target, int *next) 
+void getNextArray(const string &target, int *next)
 {
 	int head = -1;
 	int tail = 0;
@@ -16,21 +16,27 @@ void getNextArray(const string &target, int *next)
 		{
 			++head;
 			++tail;
-			next[tail] = head;
+			if (target[head] != target[tail])
+			{
+				next[tail] = head;
+			}
+			else
+			{
+				next[tail] = next[head];
+			}
 		}
 		else
 		{
 			head = next[head];
 		}
 	}
-
 }
 
-int kmp(const string &search, const string &target) 
+int kmp(const string &search, const string &target)
 {
 	int slen = search.length();
 	int tlen = target.length();
-	int* next = new int[tlen + 1];
+	int *next = new int[tlen + 1];
 	getNextArray(target, next);
 
 	int sindex = 0;
@@ -50,8 +56,8 @@ int kmp(const string &search, const string &target)
 	}
 
 	delete[] next;
-	
-	if(tindex == tlen)
+
+	if (tindex == tlen)
 		return sindex - tlen;
 	else
 		return -1;
@@ -69,7 +75,6 @@ int main()
 
 		cout << kmp(s, t) + 1 << endl;
 	}
-
 
 	return 0;
 }
