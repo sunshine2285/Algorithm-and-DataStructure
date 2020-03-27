@@ -16,14 +16,15 @@ void getNextArray(const string &target, int *next)
 		{
 			++head;
 			++tail;
-			if (target[head] != target[tail])
+			next[tail] = head;
+			/*if (target[head] != target[tail])
 			{
 				next[tail] = head;
 			}
 			else
 			{
 				next[tail] = next[head];
-			}
+			}*/
 		}
 		else
 		{
@@ -38,6 +39,13 @@ int kmp(const string &search, const string &target)
 	int tlen = target.length();
 	int *next = new int[tlen + 1];
 	getNextArray(target, next);
+
+	for (int i = 0; i < target.length(); i++)
+	{
+		cout << next[i];
+	}
+	cout << endl;
+	
 
 	int sindex = 0;
 	int tindex = 0;
